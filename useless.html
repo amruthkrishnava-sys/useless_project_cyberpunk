@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do Nothing! — time well wasted</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="particle-field" id="particleField" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Do Nothing home">
+        <span class="brand-mark">⊘</span>
+        <span>Do Nothing!</span>
+      </a>
+      <div class="player-hud">
+        <span class="player-avatar">U</span>
+        <span class="player-copy"><strong>PLAYER 001</strong><small>ROOKIE WASTER</small></span>
+        <span class="level-badge">LV <b id="level">01</b></span>
+      </div>
+      <div class="status-pill"><span class="status-dot" aria-hidden="true"></span><span id="statusText">actively wasting</span></div>
+    </header>
+
+    <section class="hero" aria-labelledby="pageTitle">
+      <p class="eyebrow">WASTE QUEST <span class="heading-slash">/</span> SEASON 01</p>
+      <h1 id="pageTitle">Your time is safe<br><em>with us.</em></h1>
+      <p class="intro">A private, scientifically unverified record of every second you choose to spend here.</p>
+    </section>
+
+    <section class="quest-board" aria-label="Active quest">
+      <div class="quest-icon">✦</div>
+      <div class="quest-copy">
+        <div class="quest-heading"><span class="stat-label">ACTIVE QUEST</span><span class="quest-reward">+100 XP</span></div>
+        <h2>Do absolutely nothing</h2>
+        <p>Remain in the app until the timer reaches one minute.</p>
+        <div class="quest-progress"><span id="questProgress"></span></div>
+      </div>
+      <strong class="quest-count" id="questCount">0%</strong>
+    </section>
+
+    <section class="timer-panel" aria-label="Wasted time tracker">
+      <div class="panel-heading">
+        <span>MISSION TIMER <span class="heading-slash">/</span> <span id="sessionNumber">NO. 001</span></span>
+        <span class="live-label"><span class="live-ring"></span> LIVE</span>
+      </div>
+      <div class="timer" id="timer" aria-live="polite">00:00:00</div>
+      <div class="timer-caption">time wasted in this tab <span class="xp-readout">+<span id="xpValue">0</span> XP</span></div>
+      <div class="button-row">
+        <button class="primary-button danger-button" id="pauseButton" type="button"><span id="pauseIcon">⚠</span><span id="pauseLabel">Pause the inevitable</span></button>
+      </div>
+    </section>
+
+    <section class="arcade-launcher" aria-label="Arcade access">
+      <div><span class="eyebrow">ARCADE ACCESS <span class="heading-slash">/</span> POP-UP WINDOW</span><h2>Games that go nowhere</h2><p>Unlock the arcade at thirty seconds. There is no prize for getting there.</p></div>
+      <button class="game-button" id="openArcadeButton" type="button" disabled>Arcade locked <span>⌁</span></button>
+    </section>
+
+    <section class="torch-launcher" aria-label="Fake torch access">
+      <div><span class="eyebrow">Do Nothing! TOOL <span class="heading-slash">/</span> NO UTILITY</span><h2>Portable darkness</h2><p>A torch that illuminates absolutely nothing.</p></div>
+      <button class="game-button" id="openTorchButton" type="button">Open fake torch <span>↗</span></button>
+    </section>
+
+    <section class="stats-grid" aria-label="Waste statistics">
+      <article class="stat-card accent-card">
+        <span class="stat-label">TODAY'S DAMAGE</span>
+        <strong id="todayTime">00:00:00</strong>
+        <span class="stat-note">and counting, somehow</span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">POINTLESSNESS RANK</span>
+        <strong id="rank"># 8,492</strong>
+        <span class="stat-note">out of everyone online</span>
+        <span class="stat-note"><em>Though, to be fair, you may be the only person using something this useless.</em></span>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">PRODUCTIVITY</span>
+        <strong>— 100%</strong>
+        <span class="stat-note">a bold, consistent result</span>
+      </article>
+    </section>
+
+    <section class="achievements-section" aria-labelledby="achievementsTitle">
+      <div class="section-heading"><div><span class="eyebrow">COLLECTION</span><h2 id="achievementsTitle">Achievements</h2></div><span class="collection-count" id="collectionCount">0 / 7 UNLOCKED</span></div>
+      <div class="achievement-grid" id="achievementGrid"></div>
+    </section>
+
+    <section class="confession">
+      <div class="confession-line"></div>
+      <p>“I came here to do something.”</p>
+      <span>— you, approximately now</span>
+      <button id="confessButton" type="button">Confess another minute <span>→</span></button>
+    </section>
+
+    <button class="end-button" id="endSessionButton" type="button">End session <span>↗</span></button>
+
+    <footer class="footer">
+      <span>NO ADS. NO PURPOSE. NO REFUNDS.</span>
+      <span id="footerDate"></span>
+    </footer>
+  </main>
+  <div class="game-window-backdrop" id="gameWindow" role="dialog" aria-modal="true" aria-labelledby="arcadeTitle" hidden>
+    <section class="game-window">
+      <header class="game-window-bar"><div><span class="window-lights"><i></i><i></i><i></i></span><strong id="arcadeTitle">Do Nothing! ARCADE</strong></div><button class="window-close" id="closeArcadeButton" type="button" aria-label="Close arcade">×</button></header>
+      <div class="game-library">
+        <aside class="game-list"><span class="eyebrow">SELECT A WASTE</span><button class="game-choice active" type="button" data-game="basketball"><b>01</b><span><strong>Nothing but net</strong><small>playable / no reward</small></span></button><button class="game-choice" type="button" data-game="clouds"><b>02</b><span><strong>Cloud staring</strong><small>playable / atmospheric</small></span></button><button class="game-choice" type="button" data-game="loading"><b>03</b><span><strong>Inbox zero</strong><small>connection lost</small></span></button><button class="game-choice" type="button" data-game="loading"><b>04</b><span><strong>Race to nowhere</strong><small>connection lost</small></span></button><button class="game-choice" type="button" data-game="loading"><b>05</b><span><strong>Button simulator</strong><small>connection lost</small></span></button><button class="game-choice" type="button" data-game="loading"><b>06</b><span><strong>Loading screen</strong><small>connection lost</small></span></button></aside>
+        <div class="game-stage" id="basketballStage">
+          <div class="court-heading"><div><span class="eyebrow">GAME 01 <span class="heading-slash">/</span> NO REWARD</span><h2>Nothing but net</h2></div><span class="score-readout"><small>SCORE</small><strong id="gameScore">0</strong></span></div>
+          <p class="court-copy">Set your aim and power. Make the basket. Watch the ball return like nothing happened.</p>
+          <div class="court" id="court" aria-label="Basketball mini-game"><div class="court-lines"></div><div class="hoop"><span class="backboard"></span><span class="rim"></span><span class="net"></span></div><div class="trajectory" id="trajectory"></div><div class="ball" id="ball"></div><div class="player-shape"></div><div class="particles" id="particles"></div></div>
+          <div class="game-controls"><label>AIM <input id="aimControl" type="range" min="35" max="70" value="52"></label><output id="aimValue">52°</output><label>POWER <input id="powerControl" type="range" min="55" max="100" value="78"></label><output id="powerValue">78%</output></div>
+          <button class="game-button" id="shootButton" type="button"><span>↗</span> Throw ball</button><p class="game-status" id="gameStatus">Make a basket to increase the arcade score.</p>
+        </div>
+        <div class="game-stage cloud-stage" id="cloudStage" hidden>
+          <div class="cloud-heading"><div><span class="eyebrow">GAME 02 <span class="heading-slash">/</span> OPEN SKY</span><h2>Cloud staring</h2></div><span class="sky-readout"><small>WIND</small><strong>SOFT</strong></span></div>
+          <p class="court-copy">Watch the weather drift by. There is nowhere to be and nothing to catch.</p>
+          <div class="cloud-sky" id="cloudSky" aria-label="An accelerated live sky with moving clouds and changing weather"><div class="sun-glow"></div><div class="celestial-body" id="celestialBody"></div><div class="rain-layer"></div><div class="lightning-flash"></div><div class="cloud cloud-one"><i></i><i></i><i></i></div><div class="cloud cloud-two"><i></i><i></i><i></i></div><div class="cloud cloud-three"><i></i><i></i><i></i></div><div class="cloud cloud-four"><i></i><i></i><i></i></div><div class="cloud cloud-five"><i></i><i></i><i></i></div><div class="distant-cloud distant-one"></div><div class="distant-cloud distant-two"></div><span class="sky-horizon"></span></div>
+          <div class="cloud-controls"><span><b id="weatherMode">OBSERVATION MODE</b><small id="weatherDescription">Keep looking up</small></span><span class="sky-status" id="skyStatus">NO RUSH DETECTED</span></div>
+          <section class="weather-forecast" aria-label="Accelerated weather forecast"><div class="forecast-header"><span class="eyebrow">WEATHER FORECAST</span><span id="forecastClock">DAY / CYCLE 00</span></div><div class="hourly-forecast" id="hourlyForecast"></div><div class="weekly-forecast" id="weeklyForecast"></div></section>
+        </div>
+        <div class="game-stage loading-stage" id="loadingStage" hidden><div class="loading-mark">∅</div><span class="eyebrow">ARCADE ERROR 408</span><h2>Connection lost.</h2><p>This game is currently unavailable because it was never made.</p><button class="game-button" id="backToBasketball" type="button">Back to Nothing but net</button></div>
+      </div>
+    </section>
+  </div>
+  <div class="torch-window-backdrop" id="torchWindow" role="dialog" aria-modal="true" aria-labelledby="torchTitle" hidden>
+    <section class="torch-window">
+      <header class="game-window-bar"><div><span class="window-lights"><i></i><i></i><i></i></span><strong id="torchTitle">FAKE TORCH UTILITY</strong></div><button class="window-close" id="closeTorchButton" type="button" aria-label="Close fake torch">×</button></header>
+      <div class="torch-app"><div class="torch-heading"><div><span class="eyebrow">Do Nothing! TOOL <span class="heading-slash">/</span> NO UTILITY</span><h2>Portable darkness</h2><p>A torch that illuminates absolutely nothing.</p></div><span class="torch-status" id="torchStatus">OFFLINE</span></div><div class="torch-scene" id="torchScene"><div class="torch-beam"></div><div class="torch-glow"></div><div class="torch-device"><span class="torch-head"><span class="torch-lens"></span><span class="torch-bezel"></span></span><span class="torch-body"><span class="torch-grip"></span><span class="torch-switch"></span></span><span class="torch-tailcap"></span></div><span class="torch-dust">NO LIGHT DETECTED</span></div><div class="torch-controls"><div><span class="stat-label">FAKE BATTERY</span><strong id="torchBattery">0%</strong></div><button class="game-button" id="torchButton" type="button"><span>◉</span> Turn on fake torch</button><div><span class="stat-label">BRIGHTNESS</span><strong id="torchBrightness">NONE</strong></div></div></div>
+    </section>
+  </div>
+  <div class="warning-modal" id="warningModal" role="alertdialog" aria-modal="true" aria-labelledby="warningTitle" hidden>
+    <div class="warning-card"><div class="warning-mark">!</div><span class="eyebrow">DANGER ZONE <span class="heading-slash">/</span> WARNING <span id="warningNumber">01</span></span><h2 id="warningTitle">Stop touching<br><em>the inevitable.</em></h2><p id="warningMessage">Can't you read, huh? Are you stupid? This is your first warning.</p><button class="warning-button" id="dismissWarning" type="button">I understand the danger</button></div>
+  </div>
+  <div class="analysis-modal" id="analysisModal" role="dialog" aria-modal="true" aria-labelledby="analysisTitle" hidden>
+    <div class="analysis-card" id="analysisLoading">
+      <div class="analysis-symbol" aria-hidden="true">∿</div>
+      <span class="eyebrow">SESSION ANALYSIS <span class="heading-slash">/</span> WEB DATA</span>
+      <h2 id="analysisTitle">Analysing data<span class="loading-dots">...</span></h2>
+      <p id="analysisMessage">Reading the evidence of your excellent lack of productivity.</p>
+      <div class="analysis-progress"><span></span></div>
+      <small class="analysis-status" id="analysisStatus">CONNECTING TO NOTHING</small>
+    </div>
+  </div>
+  <div class="exit-modal" id="exitModal" role="dialog" aria-modal="true" aria-labelledby="exitTitle" hidden>
+    <div class="modal-card report-card"><button class="modal-close" id="modalClose" type="button" aria-label="Close report">×</button><span class="eyebrow">ANALYSIS COMPLETE <span class="heading-slash">/</span> WEB REPORT</span><h2 id="exitTitle">Your complete session<br><em>achieved nothing.</em></h2><div class="final-score"><span>FINAL WASTE</span><strong id="finalTime">00:00:00</strong></div><div class="report-grid"><div><span>XP EARNED</span><strong id="finalShots">0</strong></div><div><span>QUEST PROGRESS</span><strong id="finalScore">0%</strong></div><div><span>PAGE ANALYSED</span><strong id="reportPage">Do Nothing!</strong></div><div><span>DATA SOURCE</span><strong id="reportSource">LOCAL WEB SESSION</strong></div></div><p>You earned <b id="reportShotCopy">0</b> XP, reached <b id="reportScoreCopy">0%</b> quest progress, and scored absolutely nothing. A flawless full-session performance.</p><div class="report-actions"><button class="primary-button" id="downloadReportButton" type="button">Download PDF <span>↓</span></button><button class="secondary-button evasive-button" id="continueButton" type="button" disabled>Exit <span>↗</span></button></div></div>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
