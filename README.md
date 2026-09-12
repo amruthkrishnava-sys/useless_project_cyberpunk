@@ -2,20 +2,20 @@
 
 
 
-# [Project Name] 🎯
+# Do Nothing 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: Cyberpunk
 
 
 ### Team Members
-- Team Lead: [Name] - [College]
-- Member 2: [Name] - [College]
+- Team Lead: Devanand P M - Thejus Engineering college vellarakad
+- Member 2: Amruthkrishna V A - Thejus Engineering college vellarakad
 - Member 3: [Name] - [College]
 
 ### Project Description
-[2-3 lines about what your project does]
+Do Nothing! is a satirical anti-productivity web app that tracks how long you waste staring at it, rewarding your idleness with XP, levels, achievements, and a fake "session analysis" report. It includes joke features like a pause button that refuses to pause, a pointless basketball arcade, cloud-staring weather simulator, and a flashlight that lights up nothing.
 
 ### The Problem (that doesn't exist)
 [What ridiculous problem are you solving?]
@@ -60,33 +60,6 @@ For Software:
 # Diagrams
 ![Workflow](Add your workflow/architecture diagram here)
 *Add caption explaining your workflow*
-
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
-
-### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
-
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
 - [Name 1]: [Specific contributions]
